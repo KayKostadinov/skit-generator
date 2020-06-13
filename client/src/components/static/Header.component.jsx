@@ -17,7 +17,7 @@ export default function Header() {
                     <p className='cat-name' >outlines</p></Link>
                 <Link className='nav-link' to="/db">
                     <p className='fas fa-database'></p>
-                    <p className='cat-name' >Dadabase</p></Link>
+                    <p className='cat-name' >Database</p></Link>
             </div>
         </nav>
     )
