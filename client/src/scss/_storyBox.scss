@@ -1,0 +1,72 @@
+.stories-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-gap: 0;
+    margin: 2em;
+}
+
+.box-container {
+    margin: 1em;
+    box-shadow: -3px -3px 6px 0px rgba(255,255,255,0.2), 4px 4px 7px 0px rgba(0, 0, 0, 0.4);
+    @include roundedBorders();
+    cursor: pointer;
+
+}
+
+
+.story-box {
+    height: 100%;
+    display: grid;
+    grid-template-rows: [start] .15fr [el-2] 1fr [el-3] .25fr [end];
+}
+
+.story-title {
+    align-self: start;
+    @include roundedBorders();
+    border-radius: 5px 5px 0 0 ;
+    padding: 1em;
+    background-color: $main-color;
+    color: whitesmoke;
+    font-weight: 500;
+    width: 100%;
+    box-shadow: inset 0px -1px 1px 0 rgba($color: $light-accent, $alpha: .5);
+}
+
+.story-content {
+    align-self: start;
+    @include roundedBorders();
+
+    width: 100%;
+    padding: 1em;
+    margin-top: 1em;
+    color: $light-accent;
+}
+
+.conditional-buttons {
+    align-self: end;
+}
+
+.searchbar {
+    @include flexCenter(center, row);
+    @include boxShadow();
+    p{
+        margin: .5em;
+        font-size: 20px;
+    }
+    input{
+        margin: .5em 1em;
+        width: 400px;
+        padding: .5em 1em;
+        font-size: 16px;
+        color: $light-accent;
+        background-color: $main-color;
+        border:none;
+        overflow: hidden;
+        outline: none;
+        
+    }
+    input::placeholder{
+        color: $main-lighter;
+    }
+}

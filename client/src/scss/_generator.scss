@@ -1,0 +1,24 @@
+
+.story {
+    background-color: $main-color;
+    padding: 1em;
+}
+
+.story p {
+    color: $light-accent;
+    font-size: larger;
+    margin: .7em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.cards-container {
+    @include flexCenter(space-between, row);
+    @include boxShadow();
+    @include roundedBorders();
+    overflow: hidden;
+    margin-bottom: 5em;
+
+}

@@ -1,0 +1,48 @@
+.navbar {
+    @include flexCenter(space-around, row);
+    padding: 1.4em;
+    margin: 0 10em;
+    margin-bottom: 1em;
+    background-color: $main-color;
+    border-bottom: 1px solid rgba($light-accent, .4);
+}
+
+.nav-links{
+    @include flexCenter(space-around, row);
+}
+
+.nav-link {
+    @include flexCenter(space-around, row);
+    padding: .5em 0;
+    margin: 0 2em;
+    p{
+        font-size: 20px;
+        margin: 0 .3em;
+        text-transform: uppercase;
+    }
+}
+
+
+
+.nav-link:hover {
+    
+    color: whitesmoke;
+}
+
+
+@media (max-width: 375px){
+    .site-name{
+        display: none;
+    }
+    .nav-links {
+        @include flexCenter(space-between, row);
+    }
+    .nav-link {
+        padding: .2em;
+        font-size: 20px;
+        
+    }
+    .navbar{
+        padding: 0;
+    }
+}

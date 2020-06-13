@@ -1,0 +1,36 @@
+.u-list {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 1em 3em;
+}
+
+.list-items {
+    display: flex;
+    align-items: center;
+    background-color: $dark-accent;
+    color: whitesmoke;
+    list-style: none;
+    border-radius: 5px;
+    padding: .5em 1em;
+    margin: .3em;
+}
+
+
+.list-items:hover{
+    background-color: $red-color;
+    color: $dark-accent;
+    cursor: pointer;
+}
+
+.db-list{
+    padding: 0 1em;
+    h3 {
+        border-bottom: .5px rgba($light-accent, 0.4) solid;
+    }
+    textarea {
+        border-bottom: .5px rgba($light-accent, 0.4) solid;
+
+    }
+}

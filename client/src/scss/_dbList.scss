@@ -1,0 +1,136 @@
+.db-list {
+    @include roundedBorders();
+    @include boxShadow();
+    display: flex;
+    flex-direction: column;
+    textarea {
+        background-color: $main-color;
+        margin: 0;
+        resize: none;
+    }
+
+}
+::placeholder {
+    color: $light-accent;
+}
+
+.links {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    a {
+        display: inline-block;
+        font: inherit;
+    }
+    a:hover{
+        color: whitesmoke;
+        font-weight: 500;
+    }
+
+    .link {
+        margin: 0;
+        color: $light-accent;
+        background-color: $main-color;
+        cursor: pointer;
+        font-size: 1em;
+        padding: .5em 1em;
+        overflow: hidden;
+        width: 50%;
+        font-weight: 500;
+    }
+}
+
+.link:hover {
+    color: whitesmoke;
+    font-weight: 500;
+}
+
+
+
+
+
+@media (max-width: 1024px){
+    .forms{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 4em;
+    }
+}
+
+@media (max-width: 768px){
+    .forms{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 4em;
+    }
+}
+
+@media (max-width: 375px){
+    .forms{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: space-between;
+
+    }
+    .db-list {
+        margin: 1em;
+    }
+}
+
+@media (min-width: 1024px){
+    .forms{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 4em;
+    }
+}
+
+
+// @media (max-width: 650px){
+
+//     // .link {
+//     //     color: $light-accent;
+//     //     font-size: 1em;
+//     //     background-color: $dark-accent;
+//     //     padding: 1em 3.5em;
+//     //     border-radius: 5px;
+//     //     overflow: hidden;
+//     //     cursor: pointer;
+        
+//     // }
+
+//     // .link:hover {
+//     //     background-color: $main-lighter;
+
+//     // }
+
+//     textarea {
+//         background-color: $main-lighter;
+//         border: none;
+//         border-radius: 5px;
+//         overflow: hidden;
+//         outline: none;
+//         padding: 1em;
+//         color: $light-accent;
+//         font: inherit;
+//     }
+
+//     ::placeholder {
+//         color: #37464f;
+//     }
+// }
+
+// @media (max-width: 505px){
+//     .links {
+//         @include flexCenter(center, column);
+//     }
+//     .link {
+//         margin-bottom: .5em;
+//         padding: 1em 7em;
+//     }
+//     textarea{
+//         width: 300px;
+//     }
+// }

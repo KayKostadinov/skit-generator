@@ -1,0 +1,96 @@
+.button-main {
+    margin: 1em;
+    width: 100%;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: $light-accent;
+    background-color: $main-color;
+    cursor: pointer;
+}
+
+.button-main:hover {
+    color: whitesmoke;
+}
+
+.conditional-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: stretch;
+}
+
+.button-options {
+    @include roundedBorders;
+    background-color: $dark-accent;
+    color: $light-accent;
+    padding: .5em 2em;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+
+.button-edit {
+    border-radius: 0 0 0 5px;
+
+}
+
+.button-delete {
+    border-radius: 0 0 5px 0;
+
+}
+
+.button-options:hover {
+    background-color: $light-accent;
+    color: $dark-accent;
+}
+
+.button-delete:hover {
+    background-color: $red-color;
+    color: $dark-accent;
+
+}
+
+.btn-large {
+    width: 100%;
+    padding: 1em;
+    background-color: $main-color;
+    color: whitesmoke;
+    font-weight: 600;
+    font-size: 1rem;
+    overflow: hidden;
+}
+
+.btn-large:hover{
+    background-color: $light-accent;
+    color: $dark-accent;
+}
+
+.btn-container {
+    @include flexCenter(space-around, center);
+    @include roundedBorders();
+    width: 100%;
+    border-radius: 0 0 5px 5px;
+    background-color: $main-color;
+    color: whitesmoke;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.btn-editor {
+    width: 100%;
+
+    padding: .5em 4em;
+    font-size: larger;
+    background-color: $light-accent;
+    color: $dark-accent;
+}
+
+.update:hover {
+    background-color: $dark-accent;
+    color: $light-accent;
+}
+
+.cancel:hover {
+    background-color: $red-color;
+    color: $dark-accent;
+}
