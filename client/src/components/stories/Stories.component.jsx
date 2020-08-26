@@ -3,6 +3,7 @@ import ListStories from './ListStories.component'
 import axios from 'axios'
 import StoryEdit from './StoryEdit.component'
 
+
 export default class Stories extends React.Component {
     constructor(props) {
         super(props)
@@ -11,6 +12,7 @@ export default class Stories extends React.Component {
             items: [],
             editMode: false,
             editTarget: '',
+            search: ''
         }
     }
 
@@ -40,6 +42,10 @@ export default class Stories extends React.Component {
         this.setState({ editMode: !this.state.editMode })
     }
 
+    handleChange = e => {
+        this.setState({ search: e.target.value })
+    }
+
     render() {
         const currentData = this.state.items
         const renderData = currentData.map(x => {
@@ -59,10 +65,10 @@ export default class Stories extends React.Component {
 
         return (
             <div className='container'>
-                {this.state.editMode ? null :
+                {!this.state.editMode &&
                     <div className='searchbar'>
                         <p className='fas fa-search'></p>
-                        <input type="search" placeholder='search' />
+                        <input type="search" placeholder='search' value={this.state.search} onChange={this.handleChange} />
                     </div>
                 }
                 <div className='stories-container'>

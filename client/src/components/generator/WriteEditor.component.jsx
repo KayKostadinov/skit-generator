@@ -23,10 +23,6 @@ export default function WriteEditor(props) {
                 title: title,
                 text: value
             }
-            // const story = props.storyData
-            //TODO:
-            //create mongo model and save to db
-            //implement the Story component to display in the new editor
 
             await axios.post(`/outlines/add`, data)
             history.push('/outlines')
@@ -39,11 +35,9 @@ export default function WriteEditor(props) {
 
     return (
         <div className='editor'>
-            <textarea className='story-title' cols="50" rows="1" onKeyUp={handleTitle} placeholder='Title'></textarea>
-            <textarea className='write-story' cols="50" rows="20" onKeyUp={handleKeyUp} placeholder='Story outline' ></textarea>
+            <textarea required className='story-title' cols="50" rows="1" onKeyUp={handleTitle} placeholder='Title'></textarea>
+            <textarea required className='write-story' cols="50" rows="20" onKeyUp={handleKeyUp} placeholder='Story outline' ></textarea>
             {value ? <button className='btn-large' onClick={handleSave} >SAVE</button> : null}
         </div>
     )
 }
-
-// TO DO: create a check if it's accessed from the Edit functionality and GET the information from the DB

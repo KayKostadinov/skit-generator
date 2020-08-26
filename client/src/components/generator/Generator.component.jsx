@@ -42,7 +42,7 @@ export default class Generator extends Component {
                 <div className='cards-container'>
                     {/* generator story card */}
                     <div className='gen-card'>
-                        {this.state.populate ?
+                        {this.state.populate &&
                             <Story
                                 char1={this.state.data.characters.char1}
                                 char2={this.state.data.characters.char2}
@@ -52,12 +52,12 @@ export default class Generator extends Component {
                                 theme={this.state.data.theme}
                                 world={this.state.data.world}
                             />
-                            : null
+
                         }
                         {
-                            this.state.writeStoryButton ?
-                                <button className='btn-large' onClick={this.writeStory} data={this.state.data} >OUTLINE STORY</button>
-                                : null
+                            this.state.writeStoryButton &&
+                            <button className='btn-large' onClick={this.writeStory} data={this.state.data} >OUTLINE STORY</button>
+
                         }
                     </div>
                     {/* write editor card */}

@@ -38,13 +38,11 @@ export default function ListStories(props) {
         <div className='box-container'>
             <div className='story-box' onMouseEnter={handleHover} onMouseLeave={handleMLeave} >
                 <p className='story-title' >{props.title}</p>
-                <div className='story-content' >{props.content}</div>
-                {isFocused ?
-                    <div className='conditional-buttons'>
-                        <button className='button-options button-edit' onClick={handleEdit} >EDIT</button>
-                        <button className='button-options button-delete' onClick={handleDelete} >DELETE</button>
-                    </div>
-                    : null}
+                <textarea contentEditable='false' className='story-content' >{props.content}</textarea>
+                <div className='conditional-buttons'>
+                    <button className='button-options button-edit' onClick={handleEdit} >EDIT</button>
+                    <button className='button-options button-delete' onClick={handleDelete} >DELETE</button>
+                </div>
             </div>
         </div>
     )

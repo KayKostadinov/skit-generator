@@ -1,13 +1,12 @@
 .stories-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    grid-gap: 0;
+    grid-template-rows: repeat(autofit, auto);
+    gap: 2em;
     margin: 2em;
 }
 
 .box-container {
-    margin: 1em;
     box-shadow: -3px -3px 6px 0px rgba(255,255,255,0.2), 4px 4px 7px 0px rgba(0, 0, 0, 0.4);
     @include roundedBorders();
     cursor: pointer;
@@ -18,11 +17,14 @@
 .story-box {
     height: 100%;
     display: grid;
-    grid-template-rows: [start] .15fr [el-2] 1fr [el-3] .25fr [end];
+    grid-template-rows: auto auto auto;
+    gap: 1em;
+    textarea{
+        height: 200px;
+    }
 }
 
 .story-title {
-    align-self: start;
     @include roundedBorders();
     border-radius: 5px 5px 0 0 ;
     padding: 1em;
@@ -34,13 +36,14 @@
 }
 
 .story-content {
-    align-self: start;
     @include roundedBorders();
 
     width: 100%;
     padding: 1em;
-    margin-top: 1em;
     color: $light-accent;
+    background-color: $main-color;
+    resize: none;
+    overflow: scroll;
 }
 
 .conditional-buttons {

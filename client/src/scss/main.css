@@ -530,14 +530,13 @@ a {
   display: grid;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
-  -ms-grid-rows: (1fr)[1];
-      grid-template-rows: repeat(1, 1fr);
-  grid-gap: 0;
+  -ms-grid-rows: (auto)[autofit];
+      grid-template-rows: repeat(autofit, auto);
+  gap: 2em;
   margin: 2em;
 }
 
 .box-container {
-  margin: 1em;
   -webkit-box-shadow: -3px -3px 6px 0px rgba(255, 255, 255, 0.2), 4px 4px 7px 0px rgba(0, 0, 0, 0.4);
           box-shadow: -3px -3px 6px 0px rgba(255, 255, 255, 0.2), 4px 4px 7px 0px rgba(0, 0, 0, 0.4);
   border: none;
@@ -551,14 +550,16 @@ a {
   height: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: [start] 0.15fr [el-2] 1fr [el-3] 0.25fr [end];
-      grid-template-rows: [start] 0.15fr [el-2] 1fr [el-3] 0.25fr [end];
+  -ms-grid-rows: auto auto auto;
+      grid-template-rows: auto auto auto;
+  gap: 1em;
+}
+
+.story-box textarea {
+  height: 200px;
 }
 
 .story-title {
-  -ms-flex-item-align: start;
-      -ms-grid-row-align: start;
-      align-self: start;
   border: none;
   outline: none;
   border-radius: 5px;
@@ -574,17 +575,16 @@ a {
 }
 
 .story-content {
-  -ms-flex-item-align: start;
-      -ms-grid-row-align: start;
-      align-self: start;
   border: none;
   outline: none;
   border-radius: 5px;
   overflow: hidden;
   width: 100%;
   padding: 1em;
-  margin-top: 1em;
   color: #b0bec5;
+  background-color: #31454e;
+  resize: none;
+  overflow: scroll;
 }
 
 .conditional-buttons {
