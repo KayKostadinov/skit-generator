@@ -4,9 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "client-install": "npm install --prefix client",
-    "start": "node server.js",
-    "server": "nodemon server.js",
+    "start": "node server",
+    "server": "nodemon server",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build -- prefix client"
@@ -15,10 +14,12 @@
   "author": "Kay Kostadinov",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^5.2.0",
     "config": "^3.3.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.9.15"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0"
   }
 }
