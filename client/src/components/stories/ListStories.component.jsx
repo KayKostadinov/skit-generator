@@ -6,11 +6,15 @@ export default function ListStories(props) {
 
     function handleHover(e) {
         e.preventDefault()
+        e.stopPropagation()
+
         setIsFocused(!isFocused)
     }
 
     function handleMLeave(e) {
         e.preventDefault()
+        e.stopPropagation()
+
         setIsFocused(!isFocused)
     }
 
