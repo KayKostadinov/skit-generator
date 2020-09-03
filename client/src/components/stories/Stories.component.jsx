@@ -44,7 +44,7 @@ const Stories = (props) => {
 
     return (
         <div className='grid'>
-            <section className='storyList'>
+            <section className='story-list'>
                 <input
                     className='search'
                     placeholder='find'
