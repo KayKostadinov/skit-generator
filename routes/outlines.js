@@ -10,8 +10,6 @@ router.route('/').get(async (req, res) => {
     }
 })
 
-
-
 router.route('/add').post(async (req, res) => {
     try {
         const data = req.body;

@@ -2,17 +2,16 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Editor from './Editor.component'
 
-const Stories = (props) => {
+const Stories = () => {
     // store database response
-    const [storiesData, setStories] = useState({});
+    const [storiesData, setStories] = useState();
 
     useEffect(() => {
         //reach DB for data on load
         (async () => {
             const res = await axios.get(`/outlines`)
-            setStories(res)
+            setStories(res.data)
         })();
-
     }, [])
 
     // handles search component
@@ -23,10 +22,11 @@ const Stories = (props) => {
         if (story.title.toLowerCase().includes(search.toLowerCase()) || story.text.toLowerCase().includes(search.toLowerCase())) {
             return <li
                 key={story._id}
-                id={story._id}
+                onClick={e => expandStory(e, story)}
             >
                 <h4>{story.title}</h4>
                 <p>{`${story.text.slice(0, 50)}...`}</p>
+                <i className="fas fa-chevron-circle-right expand" ></i>
             </li>
         }
     }
@@ -52,13 +52,12 @@ const Stories = (props) => {
                     onChange={e => setSearch(e.target.value)}
                 />
                 <ul>
-                    {storiesData.data && storiesData.data.map(story =>
+                    {storiesData && storiesData.map(story =>
                         search ?
                             searchResult(story)
                             :
                             <li
                                 key={story._id}
-                                id={story._id}
                                 onClick={e => expandStory(e, story)}
                             >
                                 <h4>{story.title}</h4>
@@ -68,7 +67,7 @@ const Stories = (props) => {
                     )}
                 </ul>
             </section>
-            {showStory.show && <Editor story={showStory.story} />}
+            {showStory.show && <Editor story={showStory.story} storiesData={storiesData} setStories={setStories} setShow={setShow} />}
         </div>
     )
 }

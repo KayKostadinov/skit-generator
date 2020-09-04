@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
-// TODO: change the handling of editable textareas:
-//      css :read-only
-//      js  contenteditable
-
-const Editor = ({ story }) => {
+const Editor = ({ story, storiesData, setStories, setShow }) => {
+    const [title, setTitle] = useState(story.title)
+    const [content, setContent] = useState(story.text)
+    const [edit, setEdit] = useState(false)
 
     // re-render the component data when other items are clicked in the parent(Stories)
     useEffect(() => {
@@ -12,35 +12,37 @@ const Editor = ({ story }) => {
         setContent(story.text)
     }, [story])
 
-    const [title, setTitle] = useState(story.title)
-    const [content, setContent] = useState(story.text)
-    const [edit, setEdit] = useState(false)
-    const [editable, setEditable] = useState('not-editable') // TODO: write the CSS rules to forbid/ allow editing
 
     // Delete story
-    const handleDelete = e => {
+    const handleDelete = async e => {
         e.preventDefault()
-        // TODO: delete from db
+
+        // delete from db
+        await axios.delete(`/outlines/${story._id}`)
+        setStories(storiesData.filter(x => x._id !== story._id))
+        setShow(false)
     }
 
     // Save the changes
-    const save = e => {
+    const save = async e => {
         e.preventDefault()
 
         // TODO: save to db
+        const sendData = { title: title, text: content }
+        await axios.post(`/outlines/${story._id}`, sendData)
 
-        setEdit(!edit)
-        setEditable('not-editable')
+        //exit edit mode
+        setEdit(false)
     }
 
     // Make text content editable
     const enterEditMode = e => {
         e.preventDefault()
-        setEditable('editable')
-        setEdit(!edit)
+        setEdit(true)
     }
 
-    return (
+
+    return (story &&
         <section className='editor'>
             <div className="buttons">
                 {edit ?
@@ -51,8 +53,8 @@ const Editor = ({ story }) => {
                 <button className='btn btn-danger' onClick={e => handleDelete(e)}>Delete</button>
             </div>
             <form className="story-form">
-                <textarea name='title' className={`${editable} title`} value={title} onChange={e => setTitle(e.target.value)}></textarea>
-                <textarea name='text' className={`${editable} text`} value={content} onChange={e => setContent(e.target.value)}></textarea>
+                <textarea name='title' readOnly={!edit} className={`${edit} title`} value={title} onChange={e => setTitle(e.target.value)}></textarea>
+                <textarea name='text' readOnly={!edit} autoFocus={true} className={`${edit} text`} value={content} onChange={e => setContent(e.target.value)}></textarea>
             </form>
         </section>
     )

@@ -722,7 +722,7 @@ a {
       grid-template-columns: repeat(12, 1fr);
   -ms-grid-rows: (1fr)[12];
       grid-template-rows: repeat(12, 1fr);
-  padding: 1em;
+  padding: 1em 2em;
 }
 
 .story-list {
@@ -748,6 +748,10 @@ a {
   margin: 1em 0;
 }
 
+.story-list ul {
+  cursor: pointer;
+}
+
 .story-list ul li {
   list-style: none;
   display: -ms-grid;
@@ -755,13 +759,29 @@ a {
   -ms-grid-columns: 1fr auto;
       grid-template-columns: 1fr auto;
   border-bottom: 1px solid #b0bec5;
-  padding: 1em 0;
+  padding: 1em;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.story-list ul li:nth-child(odd) {
+  background-color: #2f3f47;
+}
+
+.story-list ul li:hover, .story-list ul li:active {
+  background-color: #101f27;
+}
+
+.story-list ul li:hover i, .story-list ul li:active i {
+  color: white;
 }
 
 .story-list ul li h4 {
   -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-column: 1/ 3;
+  -ms-grid-column-span: 1;
+  grid-column: 1/ 2;
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1/ 2;
@@ -771,11 +791,12 @@ a {
 
 .story-list ul li p {
   -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-column: 1/ 3;
+  -ms-grid-column-span: 1;
+  grid-column: 1/ 2;
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2/ 3;
+  font-size: 0.9em;
 }
 
 .story-list ul li i {
@@ -785,13 +806,19 @@ a {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   grid-row: 1/ 3;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   font-size: 1.4em;
 }
 
 .editor {
-  grid-column: 6/ end;
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 7;
+  grid-column: 6/ 13;
   grid-row: 1/ end;
   align-self: flex-start;
+  width: 100%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
@@ -855,6 +882,8 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .editor .story-form textarea {
@@ -865,5 +894,28 @@ a {
   border-radius: 5px;
   overflow: hidden;
   resize: none;
+  background-color: #101f27;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.editor .story-form textarea:focus, .editor .story-form textarea:active {
+  color: white;
+}
+
+.editor .story-form .title {
+  height: 3em;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+.editor .story-form .text {
+  height: 75vh;
+  overflow: scroll;
+}
+
+.editor .story-form .false {
+  background-color: #31454e;
+  color: white;
 }
 /*# sourceMappingURL=main.css.map */
