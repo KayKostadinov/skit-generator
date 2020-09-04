@@ -864,6 +864,13 @@ a {
 
 .editor .buttons .btn-danger:hover, .editor .buttons .btn-danger:active {
   background-color: #ff1744;
+  color: #101f27;
+  border: 1px solid transparent;
+}
+
+.editor .buttons .btn-confirm:hover, .editor .buttons .btn-confirm:active {
+  background-color: lightgreen;
+  color: #101f27;
   border: 1px solid transparent;
 }
 

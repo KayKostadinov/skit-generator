@@ -44,14 +44,17 @@ const Editor = ({ story, storiesData, setStories, setShow }) => {
 
     return (story &&
         <section className='editor'>
-            <div className="buttons">
-                {edit ?
-                    <button className='btn btn-regular' onClick={e => save(e)}>Save</button>
-                    :
+            {edit ?
+                <div className="buttons">
+                    <button className='btn btn-danger' onClick={e => handleDelete(e)}>Delete</button>
+                    <button className='btn btn-confirm' onClick={e => save(e)}>Save</button>
+                    <button className='btn btn-danger' onClick={() => setEdit(false)}>Cancel</button>
+                </div>
+                :
+                <div className="buttons">
                     <button type='button' className='btn btn-regular' onClick={e => enterEditMode(e)}>Edit</button>
-                }
-                <button className='btn btn-danger' onClick={e => handleDelete(e)}>Delete</button>
-            </div>
+                </div>
+            }
             <form className="story-form">
                 <textarea name='title' readOnly={!edit} className={`${edit} title`} value={title} onChange={e => setTitle(e.target.value)}></textarea>
                 <textarea name='text' readOnly={!edit} autoFocus={true} className={`${edit} text`} value={content} onChange={e => setContent(e.target.value)}></textarea>
