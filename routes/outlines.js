@@ -3,7 +3,7 @@ const Outline = require('../models/outline.model');
 
 router.route('/').get(async (req, res) => {
     try {
-        const all = await Outline.find()
+        const all = await Outline.find().sort('-updatedAt')
         res.json(all)
     } catch (err) {
         res.status(400).json(`Error ${err}`)

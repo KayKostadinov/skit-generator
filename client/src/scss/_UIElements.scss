@@ -1,3 +1,42 @@
+.buttons{
+    margin: 1em 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn{
+    display: inline-block;
+    padding: 0.5em 1em;
+    font-size: 1.1em;
+    @include roundedBorders();
+    border: 1px solid $light-accent;
+    color: $light-accent;
+    background-color: $main-color;
+
+    &:hover, &:active {
+        border: 1px solid white;
+        color: white;
+    }
+}
+
+.btn-danger{
+    &:hover, &:active {
+        background-color: $red-color;
+        color: $dark-accent;
+        border: 1px solid transparent;
+
+    }
+}
+
+.btn-confirm{
+    &:hover, &:active {
+        background-color: lightgreen;
+        color: $dark-accent;
+        border: 1px solid transparent;
+
+    }
+}
+
 .button-main {
     margin: 1em;
     width: 100%;

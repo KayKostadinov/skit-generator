@@ -7,7 +7,7 @@ export default function WriteEditor(props) {
     const [title, setTitle] = useState('')
     const history = useHistory();
 
-    function handleKeyUp(e) {
+    function handleContent(e) {
         setValue(e.target.value)
     }
 
@@ -34,10 +34,12 @@ export default function WriteEditor(props) {
 
 
     return (
-        <div className='editor'>
-            <textarea required className='story-title' cols="50" rows="1" onKeyUp={handleTitle} placeholder='Title'></textarea>
-            <textarea required className='write-story' cols="50" rows="20" onKeyUp={handleKeyUp} placeholder='Story outline' ></textarea>
-            {value ? <button className='btn-large' onClick={handleSave} >SAVE</button> : null}
+        <div className='write'>
+            <textarea required className='title' value={title} onChange={handleTitle} placeholder='Title'></textarea>
+            <textarea required className='story' value={value} onChange={handleContent} placeholder='Story outline'></textarea>
+            {value && title &&
+                <button className='btn' onClick={handleSave} >SAVE</button>
+            }
         </div>
     )
 }

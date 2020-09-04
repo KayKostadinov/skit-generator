@@ -56,21 +56,18 @@ export default class Generator extends Component {
                         }
                         {
                             this.state.writeStoryButton &&
-                            <button className='btn-large' onClick={this.writeStory} data={this.state.data} >OUTLINE STORY</button>
+                            <button className='btn' onClick={this.writeStory} data={this.state.data} >OUTLINE STORY</button>
 
                         }
                     </div>
                     {/* write editor card */}
-                    <div >
-                        {
-                            this.state.write ?
-                                <WriteEditor
-                                    storyData={this.state.data}
-                                />
-                                : null
-                        }
-                    </div>
-
+                    {
+                        this.state.write ?
+                            <WriteEditor
+                                storyData={this.state.data}
+                            />
+                            : null
+                    }
                 </div>
             </div>
         )
