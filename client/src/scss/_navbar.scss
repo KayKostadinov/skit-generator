@@ -1,6 +1,7 @@
 .navbar {
     @include flexCenter(space-around, row);
     margin: 0 2em;
+    padding: 0.5em 0;
     background-color: $main-color;
     border-bottom: 1px solid rgba($light-accent, .5);
 }

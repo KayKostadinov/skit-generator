@@ -79,6 +79,7 @@ a {
 
 input, textarea, form {
     scrollbar-width: none;
+    overflow: scroll;
     &::-webkit-scrollbar{
         display: none;
     }
