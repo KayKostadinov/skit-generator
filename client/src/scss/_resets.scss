@@ -72,3 +72,10 @@ a {
     font-size: 1.5em;
     margin: .5em;
 }
+
+input, textarea, form {
+    scrollbar-width: none;
+    &::-webkit-scrollbar{
+        display: none;
+    }
+}

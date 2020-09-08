@@ -88,6 +88,14 @@ a {
   margin: .5em;
 }
 
+input, textarea, form {
+  scrollbar-width: none;
+}
+
+input::-webkit-scrollbar, textarea::-webkit-scrollbar, form::-webkit-scrollbar {
+  display: none;
+}
+
 .buttons {
   margin: 1em 0;
   display: -webkit-box;
